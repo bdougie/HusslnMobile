@@ -14,8 +14,10 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 65,
   },
+  content: {
+    padding: 50,
+  },
   data: {
-    padding: 40,
     flex: 4,
     fontSize: 20,
     textAlign: 'center',
@@ -25,11 +27,19 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
   },
   header: {
+    backgroundColor: '#48BBEC',
+    marginTop: 5,
+    marginLeft: 5,
+    marginRight: 5,
+    marginBottom: 5,
     padding: 50,
-    backgroundColor: '#DCDCDC',
   },
   image: {
-    flex: 5,
+    flex: 6,
+    marginBottom: 0,
+    marginLeft: 5,
+    marginRight: 5,
+    marginBottom: 5,
   },
   text: {
     flex: 2,
@@ -72,10 +82,11 @@ export default class Main extends React.Component {
         <View style={styles.header}>
           <Text style={styles.text}>Event Notifications</Text>
         </View>
-        <Text style={styles.data}>{data.name} @{data.standard_start_time}</Text>
+        <View style={styles.content}>
+          <Text style={styles.data}>{data.name} @{data.standard_start_time}</Text>
+        </View>
         <Image style={styles.image}
-          source={{uri: ''}} />
-        <View style={styles.footer} />
+          source={{uri: 'https://www.bart.gov/sites/all/themes/bart_desktop/img/system-map.gif'}} />
       </View>
     );
   }
