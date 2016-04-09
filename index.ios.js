@@ -16,9 +16,9 @@ class HusslnMobile extends Component {
       <NavigatorIOS
         ref="nav"
         style={styles.container}
-        barTintColor='red'
+        barTintColor='white'
         shadowHidden={true}
-        titleTextColor='white'
+        titleTextColor='#C0C0C0'
         initialRoute={{
           title: 'St8 Hussln',
           component: Main

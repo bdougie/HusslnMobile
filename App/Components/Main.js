@@ -2,6 +2,7 @@ import React from 'react-native';
 import api from '../Lib/Api'
 
 const {
+  Image,
   PropTypes,
   StyleSheet,
   Text,
@@ -26,6 +27,9 @@ const styles = StyleSheet.create({
   header: {
     padding: 50,
     backgroundColor: '#DCDCDC',
+  },
+  image: {
+    flex: 5,
   },
   text: {
     flex: 2,
@@ -69,6 +73,8 @@ export default class Main extends React.Component {
           <Text style={styles.text}>Event Notifications</Text>
         </View>
         <Text style={styles.data}>{data.name} @{data.standard_start_time}</Text>
+        <Image style={styles.image}
+          source={{uri: ''}} />
         <View style={styles.footer} />
       </View>
     );
