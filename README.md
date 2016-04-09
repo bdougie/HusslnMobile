@@ -1,6 +1,6 @@
 # Hussln Mobile
 
-![BART](https://media.giphy.com/media/gw3yDv97MlHi3ZBK/giphy.gif)
+![sample_app](http://i.imgur.com/JPU4fiVl.png)
 
 Don't ride BART when it's turnt
 
