@@ -32,3 +32,7 @@ local.properties
 #
 node_modules/
 npm-debug.log
+
+# local ios builds
+# $ curl http://localhost:8081/index.ios.bundle -o main.jsbundle
+main.jsbundle
