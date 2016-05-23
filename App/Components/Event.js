@@ -17,10 +17,12 @@ export default class Event extends React.Component {
     const {event} = this.props;
     const start = moment(event.start_time, 'YYYYMMDD').fromNow();
 
+    console.log(event)
     return (
       <View style={styles.header}>
         <Text style={styles.text}>{event.name}</Text>
-        <Text style={styles.time}>{start}</Text>
+        <Text style={styles.time}>@{event.standard_start_time}</Text>
+        <Text style={styles.moment}>{start}</Text>
       </View>
     );
   }
@@ -36,6 +38,15 @@ const styles = StyleSheet.create({
     marginRight: 5,
     marginBottom: 5,
     padding: 50,
+  },
+  moment: {
+    color: 'white',
+    fontSize: 12,
+    flex: 2,
+    flexDirection: 'row',
+    fontStyle: 'italic',
+    marginTop: 10,
+    textAlign: 'center',
   },
   text: {
     color: 'white',
