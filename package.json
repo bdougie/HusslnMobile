@@ -17,6 +17,7 @@
     "eslint-plugin-react-native": "^1.0.0",
     "moment": "^2.13.0",
     "react": "^0.14.8",
-    "react-native": "^0.23.1"
+    "react-native": "^0.23.1",
+    "react-transmit-native": "^3.1.7"
   }
 }

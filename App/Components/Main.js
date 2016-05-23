@@ -1,6 +1,7 @@
 import React from 'react-native';
 import api from '../Lib/Api'
 import moment from 'moment';
+import Transmit from "react-transmit-native";
 
 const {
   PropTypes,
@@ -8,6 +9,39 @@ const {
   Text,
   View
 } = React;
+
+class Main extends React.Component {
+  static propTypes = {
+    events: PropTypes.array,
+    navigator: PropTypes.object,
+  };
+
+  render() {
+    const {events} = this.props;
+    const start = moment(events[0].start_time, 'YYYYMMDD').fromNow();
+
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.text}>{events[0].name}</Text>
+          <Text style={styles.time}>{start}</Text>
+        </View>
+      </View>
+    );
+  }
+}
+
+export default Transmit.createContainer(Main, {
+  initialVariables: {},
+  fragments: {
+    events() {
+      return  api.getEventData()
+      .then((data) => data)
+      .catch((err) => console.log(`error: ${err}`));
+    }
+  }
+});
+
 
 const styles = StyleSheet.create({
   container: {
@@ -59,45 +93,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class Main extends React.Component {
-  constructor(props){
-    super(props);
-
-    this.state = {
-      data: {},
-    }
-  }
-
-  static propTypes = {
-    navigator: PropTypes.object,
-  };
-
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData() {
-    api.getEventData()
-    .then((res) => {
-      this.setState({
-        data: res[0],
-      })
-    })
-    .catch((err) => console.log(`error: ${err}`));
-  }
-
-  render() {
-    const {data} = this.state;
-    const start = moment(data.start_time, 'YYYYMMDD').fromNow();
-    console.log(data);
-
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.text}>{data.name}</Text>
-          <Text style={styles.time}>{start}</Text>
-        </View>
-      </View>
-    );
-  }
-}
