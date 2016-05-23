@@ -1,26 +1,31 @@
 import React from 'react-native';
-import api from '../Lib/Api'
+import api from '../Lib/Api';
 import Event from '../Components/Event';
-import Transmit from "react-transmit-native";
+import Transmit from 'react-transmit-native';
 
 const {
   ListView,
   PropTypes,
   StyleSheet,
-  Text,
   View
 } = React;
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
 class Events extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
-    this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2})
+    this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2});
     this.state = {
       isLoading: true,
       empty: false,
       error: '',
-    }
+    };
   }
 
   static propTypes = {
@@ -30,12 +35,14 @@ class Events extends React.Component {
   render() {
     const {events} = this.props;
     const data = this.ds.cloneWithRows(events);
+    const row = this.renderRow.bind(this);
 
     return (
       <View style={styles.container}>
         <ListView
           dataSource={data}
-          renderRow={this.renderRow.bind(this)} />
+          renderRow={row}
+        />
       </View>
     );
   }
@@ -53,17 +60,9 @@ export default Transmit.createContainer(Events, {
   initialVariables: {},
   fragments: {
     events() {
-      return  api.getEventData()
+      return api.getEventData()
       .then((events) => events)
       .catch((err) => console.log(`error: ${err}`));
     }
   }
 });
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-
