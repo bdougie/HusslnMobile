@@ -4,15 +4,18 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "bundle":"curl http://localhost:8081/index.ios.bundle -o main.jsbundle"
+    "bundle": "curl http://localhost:8081/index.ios.bundle -o main.jsbundle"
   },
   "babel": {
-    "presets": ["react-native"]
+    "presets": [
+      "react-native"
+    ]
   },
   "dependencies": {
     "babel-eslint": "^6.0.2",
     "eslint": "^2.7.0",
     "eslint-plugin-react-native": "^1.0.0",
+    "moment": "^2.13.0",
     "react": "^0.14.8",
     "react-native": "^0.23.1"
   }

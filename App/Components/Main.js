@@ -1,8 +1,8 @@
 import React from 'react-native';
 import api from '../Lib/Api'
+import moment from 'moment';
 
 const {
-  Image,
   PropTypes,
   StyleSheet,
   Text,
@@ -42,8 +42,19 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   text: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
     flex: 2,
     flexDirection: 'row',
+    textAlign: 'center',
+  },
+  time: {
+    fontSize: 15,
+    flex: 2,
+    flexDirection: 'row',
+    fontStyle: 'italic',
+    marginTop: 10,
     textAlign: 'center',
   },
 });
@@ -77,16 +88,15 @@ export default class Main extends React.Component {
 
   render() {
     const {data} = this.state;
+    const start = moment(data.start_time, 'YYYYMMDD').fromNow();
+    console.log(data);
+
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.text}>Event Notifications</Text>
+          <Text style={styles.text}>{data.name}</Text>
+          <Text style={styles.time}>{start}</Text>
         </View>
-        <View style={styles.content}>
-          <Text style={styles.data}>{data.name} @{data.standard_start_time}</Text>
-        </View>
-        <Image style={styles.image}
-          source={{uri: 'https://www.bart.gov/sites/all/themes/bart_desktop/img/system-map.gif'}} />
       </View>
     );
   }

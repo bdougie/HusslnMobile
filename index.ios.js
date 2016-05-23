@@ -20,7 +20,7 @@ class HusslnMobile extends Component {
         shadowHidden={true}
         titleTextColor='#C0C0C0'
         initialRoute={{
-          title: 'St8 Hussln',
+          title: 'Hustlin',
           component: Main
         }} />
     );
