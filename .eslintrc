@@ -3,13 +3,8 @@
   "plugins": [
     "import",
     "react",
-    "react-native",
-  
-Error: Parse error on line 6:
-...  "react-native",  ],  "extends" : ["a
-----------------------^
-Expecting 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['
-],
+    "react-native"
+  ],
   "extends" : ["airbnb"],
   "rules": {
     "comma-dangle": 0,

@@ -3,11 +3,7 @@ const apiRoot = 'http://hussln.herokuapp.com/events.json';
 const api = {
   getEventData() {
     return fetch(apiRoot)
-    .then((res) => {
-      return res.json().then((jres) => {
-        return jres.events;
-      })
-    })
+    .then((res) => res.json().then((jres) => jres.events))
     .catch((err) => console.log(`api error: ${err}`));
   }
 };
