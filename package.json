@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "bundle": "curl http://localhost:8081/index.ios.bundle -o main.jsbundle"
+    "bundle": "curl http://localhost:8081/index.ios.bundle -o main.jsbundle",
+    "ios": "open ios/HusslnMobile.xcodeproj"
   },
   "babel": {
     "presets": [

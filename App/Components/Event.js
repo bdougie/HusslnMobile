@@ -2,36 +2,12 @@ import React from 'react-native';
 import moment from 'moment';
 
 const {
-  PropTypes,
   StyleSheet,
   Text,
   View
 } = React;
 
-export default class Event extends React.Component {
-  static propTypes = {
-    event: PropTypes.object,
-  };
-
-  render() {
-    const {event} = this.props;
-    const start = moment(event.start_time, 'YYYYMMDD').fromNow();
-
-    console.log(event)
-    return (
-      <View style={styles.header}>
-        <Text style={styles.text}>{event.name}</Text>
-        <Text style={styles.time}>@{event.standard_start_time}</Text>
-        <Text style={styles.moment}>{start}</Text>
-      </View>
-    );
-  }
-}
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   header: {
     backgroundColor: '#48BBEC',
     marginLeft: 5,
@@ -65,3 +41,20 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+const Event = ({event}) => {
+  const start = moment(event.start_time, 'YYYYMMDD').fromNow();
+
+  return (
+    <View style={styles.header}>
+      <Text style={styles.text}>{event.name}</Text>
+      <Text style={styles.time}>@{event.standard_start_time}</Text>
+      <Text style={styles.moment}>{start}</Text>
+    </View>
+  );
+};
+
+Event.propTypes = {event: React.PropTypes.object};
+
+export default Event;
+
