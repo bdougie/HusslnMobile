@@ -1,6 +1,7 @@
 import React from 'react-native';
 import api from '../Lib/Api';
 import Event from '../Components/Event';
+import Empty from '../Components/Empty';
 import Transmit from 'react-transmit-native';
 
 const {
@@ -33,18 +34,20 @@ class Events extends React.Component {
   };
 
   render() {
-    const {events} = this.props;
+    // const {events} = this.props;
+    const events = [];
     const data = this.ds.cloneWithRows(events);
     const row = this.renderRow.bind(this);
 
-    return (
-      <View style={styles.container}>
+    return events.length > 0
+      ? <View style={styles.container}>
         <ListView
           dataSource={data}
           renderRow={row}
         />
       </View>
-    );
+      : <Empty />
+      ;
   }
 
   renderRow(rowData) {

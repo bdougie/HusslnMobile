@@ -10,9 +10,7 @@ const {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: '#48BBEC',
-    marginLeft: 5,
-    marginRight: 5,
-    marginBottom: 5,
+    marginBottom: 10,
     padding: 50,
   },
   moment: {
